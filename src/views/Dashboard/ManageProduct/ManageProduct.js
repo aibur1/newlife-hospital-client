@@ -5,7 +5,7 @@ import './ManageProduct.css';
 const ManageProduct = () => {
     const [allProducts,setAllProducts]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/homeService`)
+        fetch(`https://cryptic-fortress-30705.herokuapp.com/homeService`)
         .then(res=>res.json())
         .then(data=>setAllProducts(data))
     },[])
@@ -13,7 +13,7 @@ const ManageProduct = () => {
     const deleteProduct=(id)=>{
         const confirm=window.confirm(`are you sure you want to delete?`)
         if(confirm){
-            fetch(`http://localhost:5000/homeService/${id}`,{
+            fetch(`https://cryptic-fortress-30705.herokuapp.com/homeService/${id}`,{
                 method:"DELETE"
             })
             .then(res=>res.json())

@@ -18,7 +18,7 @@ const AddProduct = () => {
   
   const newProduct={img,title,dic,price}
   
-    fetch(`http://localhost:5000/homeService`,{
+    fetch(`https://cryptic-fortress-30705.herokuapp.com/homeService`,{
         method:"post",
         headers: {
           'Content-Type': 'application/json' 

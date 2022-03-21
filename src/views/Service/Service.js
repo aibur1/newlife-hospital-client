@@ -5,7 +5,7 @@ import './Service.css';
 
 const Service = ({service}) => {
     console.log(service);
-    const {_id, name, img, description} = service;
+    const {_id, time, remaining, name, img, description} = service;
     return (
         <div>
            <Col>
@@ -14,9 +14,11 @@ const Service = ({service}) => {
                     <Card.Img variant="top" src={img} />
                     <Card.Body>
                         <Card.Title> {name}</Card.Title>
+                        <h5>{time}</h5>
+                        <h4>{remaining}</h4>
                         <h6>{description}</h6>
                         <Link to={`/booking/${_id}`}>
-                            <button className="btn price-btn">Booking</button>
+                            <button className="btn price-btn">Appointment</button>
                         </Link>
                     </Card.Body>
                 </Card>

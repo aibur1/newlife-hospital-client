@@ -23,7 +23,7 @@ const ReviewBox = () => {
     
            const data={name,email,dic,img,rating}
          
-    fetch(`http://localhost:5000/reviews`,{
+    fetch(`https://cryptic-fortress-30705.herokuapp.com/reviews`,{
         method: 'post',
         headers: {
             'Content-Type': 'application/json'

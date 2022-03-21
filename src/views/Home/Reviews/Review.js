@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import Rating from 'react-rating';
+import './Review.css';
 
 const Review = (props) => {
     const {img,name,email,dic,rating}=props.card

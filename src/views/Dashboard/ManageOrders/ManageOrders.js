@@ -7,7 +7,7 @@ const ManageOrders = () => {
     const [allOrders,setAllOrders]=useState([])
     const [shipted,setShipted]=useState(false)
     useEffect(()=>{
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://cryptic-fortress-30705.herokuapp.com/orders`)
         .then(res=>res.json())
         .then(data=>setAllOrders(data))
     },[shipted])
@@ -15,7 +15,7 @@ const ManageOrders = () => {
    const deleteOrder=(id)=>{
        const confirm=window.confirm(`are you sure you want to delete?`)
        if(confirm){
-        fetch(`http://localhost:5000/orders/${id}`,{
+        fetch(`https://cryptic-fortress-30705.herokuapp.com/orders/${id}`,{
             method:"DELETE"
         })
          .then(res=>res.json())
@@ -33,7 +33,7 @@ const ManageOrders = () => {
 
 
    const statusUpdateFunction=(id)=>{
-    fetch(`http://localhost:5000/orders/${id}`,{
+    fetch(`https://cryptic-fortress-30705.herokuapp.com/orders/${id}`,{
         method:"PUT"
     })
     .then(res=>res.json())

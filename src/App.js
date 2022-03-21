@@ -15,9 +15,6 @@ import Dashboard from './views/Dashboard/Dashboard';
 import Booking from './views/Booking/Booking';
 
 
-
-
-
 function App() {
   return (
     <div className="App">
@@ -49,12 +46,13 @@ function App() {
         <Route exact path="/register">
         <Register />
         </Route>
-        <Route exact path="/booking/:serviceId">
+        <PrivateRoute exact path="/booking/:serviceId">
         <Booking />
-        </Route>
+        </PrivateRoute>
         <Route exact path="/dashboard">
         <Dashboard />
         </Route>
+        
       </Switch>
 
     <Footer/>

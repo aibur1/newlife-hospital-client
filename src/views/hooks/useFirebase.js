@@ -87,7 +87,7 @@ const useFirebase = () => {
     }, [auth])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/${user.email}`)
+        fetch(`https://cryptic-fortress-30705.herokuapp.com/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -104,7 +104,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://cryptic-fortress-30705.herokuapp.com/user', {
             method: method,
             headers: {
                 'content-type': 'application/json'

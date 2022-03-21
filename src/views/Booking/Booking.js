@@ -12,7 +12,7 @@ const Booking = () => {
 
     useEffect(() => {
 
-        fetch( `http://localhost:5000/services/${serviceId}`)
+        fetch( `https://cryptic-fortress-30705.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
@@ -21,20 +21,21 @@ const Booking = () => {
     const emailRef=useRef();
     const addressRef=useRef();
     const phoneRef=useRef();
-    // const dateRef=useRef();
-    const pruductRef=useRef();
+    const timeRef=useRef();
+    
 
     const formSubmit = e => {
         e.preventDefault();
         const name=nameRef.current.value;
          const email=emailRef.current.value;
          const address=addressRef.current.value;
+         const time = timeRef.current.value;
           const phone=phoneRef.current.value;
         
 
-        const loadData={name,email,address,phone,img:service.img,status:'pending',price:service.price}
+        const loadData={name,email,address,phone,time,img:service.img,status:'pending',price:service.price}
 
-       fetch(`http://localhost:5000/services`,{
+       fetch(`https://cryptic-fortress-30705.herokuapp.com/services`,{
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -45,7 +46,7 @@ const Booking = () => {
        .then(res=>res.json())
        .then(data=>{
            if(data.insertedId){
-               alert(`your order successfully accepted`)
+               alert(`Your confirmation successfully accepted`)
                e.target.reset()
            }
        })
@@ -68,11 +69,12 @@ const Booking = () => {
                    <form className='' onSubmit={formSubmit}>
                        <input type="name"  ref={nameRef} value={user?.displayName} placeholder='Name'/> <br />
                                 <input type="email" value={user?.email} ref={emailRef}placeholder='Email'/> <br />
+                                <input disabled type="" value={service?.time} ref={timeRef}placeholder=''/> <br />
                                 <input type="text"  ref={addressRef} placeholder='Address'/> <br />
                                 {/* <input type="text" value={service?.title} ref={pruductRef} placeholder='Product Name'/> */}
                                 <input type="number"ref={phoneRef} placeholder='Phone'/> <br/> <br />
                                 {/* <input type="date"  ref={dateRef} placeholder='Date'/> */}
-                       <input className='price-btn' type="submit" value="Place order" />
+                       <input className='price-btn' type="submit" value="Confirm" />
             
                   </form>
                </div>

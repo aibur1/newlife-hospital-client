@@ -8,7 +8,7 @@ const MakeAdmin = () => {
         e.preventDefault()
         const email=emailRef.current.value;
         const emailAdmin={email}
-      fetch(`http://localhost:5000/user`,{
+      fetch(`https://cryptic-fortress-30705.herokuapp.com/user`,{
          method: 'PUT',
          headers: {
              'Content-Type': 'application/json'
