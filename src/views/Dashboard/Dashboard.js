@@ -32,7 +32,7 @@ import ManageOrders from './ManageOrders/ManageOrders';
 const drawerWidth = 260;
 
 function Dashboard (props){
-    const {admin,logout,user}=UseAuth();
+    const {admin,logOut,user}=UseAuth();
     console.log(user);
     let { path, url } = useRouteMatch();
   const { window } = props;
@@ -100,7 +100,7 @@ function Dashboard (props){
           </ListItem>
           </Link>
       
-      <button className='dashboard-logout-btn' onClick={logout} style={{display: 'contents',color:"#fff"}} >
+      <button className='dashboard-logout-btn' onClick={logOut} style={{display: 'contents',color:"#fff"}} >
           <ListItem button>
             <ListItemIcon>
             <img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/28/000000/external-logout-social-media-basic-1-sbts2018-flat-sbts2018.png" alt=''/>
@@ -172,7 +172,7 @@ function Dashboard (props){
             </ListItemText>
           </ListItem>
           </Link>
-          <button className='dashboard-logout-btn' onClick={logout} style={{display: 'contents',color:"#fff"}}> <ListItem button>
+          <button className='dashboard-logout-btn' onClick={logOut} style={{display: 'contents',color:"#fff"}}> <ListItem button>
             <ListItemIcon>
             <img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/30/000000/external-logout-social-media-basic-1-sbts2018-flat-sbts2018.png" alt=''/>
             </ListItemIcon>

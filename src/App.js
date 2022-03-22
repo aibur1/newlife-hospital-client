@@ -47,9 +47,9 @@ function App() {
         <Route exact path="/register">
         <Register />
         </Route>
-        <Route exact path="/freecamp">
+        <PrivateRoute exact path="/freecamp">
         <FreeCamp />
-        </Route>
+        </PrivateRoute>
         <PrivateRoute exact path="/booking/:serviceId">
         <Booking />
         </PrivateRoute>
