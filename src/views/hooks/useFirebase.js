@@ -87,7 +87,7 @@ const useFirebase = () => {
     }, [auth])
 
     useEffect(() => {
-        fetch(`https://cryptic-fortress-30705.herokuapp.com/${user.email}`)
+        fetch(`https://cryptic-fortress-30705.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -102,16 +102,21 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    const saveUser = (email, displayName, method) => {
+    const saveUser = (email, displayName) => {  //method
         const user = { email, displayName };
         fetch('https://cryptic-fortress-30705.herokuapp.com/user', {
-            method: method,
+            method: "post", //method
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)
         })
-            .then()
+            .then(res=> res.json())
+            .then(data=> {
+                if(data.insertedId){
+                    alert('Your Information saved')
+                }
+            })
     }
 
 
