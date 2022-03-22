@@ -15,7 +15,7 @@ const OrderList = () => {
   const deleteFunction=(id)=>{
     const confirm=window.confirm(`are you sure you want to delete?`)
     if(confirm){
-      fetch(`https://localhost:5000/${id}`,{
+      fetch(`https://cryptic-falls-79729.herokuapp.com/${id}`,{
           method:"delete"
       })
       .then(res=>res.json())

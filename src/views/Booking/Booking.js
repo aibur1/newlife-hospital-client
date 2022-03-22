@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { CircularProgress, Container,Grid,TextField } from '@mui/material';
 import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import useAuth from '../hooks/useAuth';
@@ -15,7 +16,7 @@ const Booking = () => {
         fetch( `https://cryptic-fortress-30705.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
-    }, [])
+    },[])
 
     const nameRef=useRef();
     const emailRef=useRef();
@@ -33,7 +34,7 @@ const Booking = () => {
           const phone=phoneRef.current.value;
         
 
-        const loadData={name,email,address,phone,time,img:service.img,status:'pending',price:service.price}
+        const loadData={name,email,address,phone,time,img:service.img,status:'pending'}
 
        fetch(`https://cryptic-fortress-30705.herokuapp.com/services`,{
         method: 'post',
@@ -45,6 +46,7 @@ const Booking = () => {
        })
        .then(res=>res.json())
        .then(data=>{
+           console.log(data)
            if(data.insertedId){
                alert(`Your confirmation successfully accepted`)
                e.target.reset()
@@ -54,32 +56,46 @@ const Booking = () => {
     }
 
     return (
-        <div className='row '>
-            <div className='  col-sm-12 col-md-4 col-lg-6'>
-                
-                <img src={service?.img} alt="" /> 
-                <h1>{service?.name}</h1>
-                <h5>{service.description}</h5>
-                
-            </div>
-            
-            <div className=' col-sm-12 col-md-4 col-lg-6'>
-                 <div className='py-5'>
-                      <h1>Confirm Booking now</h1>
-                   <form className='' onSubmit={formSubmit}>
-                       <input type="name"  ref={nameRef} value={user?.displayName} placeholder='Name'/> <br />
-                                <input type="email" value={user?.email} ref={emailRef}placeholder='Email'/> <br />
-                                <input disabled type="" value={service?.time} ref={timeRef}placeholder=''/> <br />
-                                <input type="text"  ref={addressRef} placeholder='Address'/> <br />
-                                {/* <input type="text" value={service?.title} ref={pruductRef} placeholder='Product Name'/> */}
-                                <input type="number"ref={phoneRef} placeholder='Phone'/> <br/> <br />
-                                {/* <input type="date"  ref={dateRef} placeholder='Date'/> */}
-                       <input className='price-btn' type="submit" value="Confirm" />
-            
-                  </form>
-               </div>
-            </div>
-        </div>
+        
+        <div className='orderPlace'>
+        <Container>
+          <Grid container spacing={2}>
+             <Grid item xs={12} md={6}>
+              <div className='single-service-review-area'>
+              <div className='single-service-review'>
+                       <img src={service.img} alt="" />
+                        <div className='bg-dark'>
+                        <h1>{service?.title}</h1>
+                       <p>{service.description}</p>
+                      
+                        </div>
+                   </div>
+              </div>
+               </Grid> 
+ 
+               <Grid item xs={12} md={6}>
+                <div className='order-Place-form'>
+                    <h1>Confirm orders now</h1>
+                <form onSubmit={formSubmit}>
+                <input type="name"  ref={nameRef} value={user?.displayName} placeholder='Name'/>
+                              <input type="email" value={user?.email} ref={emailRef}placeholder='Email'/>
+                              <input value={service.time} type="text"  ref={timeRef} placeholder='time'/>
+                              <input type="text"  ref={addressRef} placeholder='Address'/>
+                             
+                              <input type="number"ref={phoneRef} placeholder='Phone'/>
+                              
+                          <input type="submit" value="Place order" />
+          
+        </form>
+                </div>
+               </Grid> 
+             
+ 
+ 
+               </Grid>
+     
+        </Container>
+      </div>
     );
 };
 
