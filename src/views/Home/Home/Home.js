@@ -1,6 +1,7 @@
 import React from 'react';
 import Partner from '../../Partners/Partner';
 import Pricing from '../../Pricing/Pricing';
+import FreeCamp from '../FreeCamp/FreeCamp';
 import Header from '../Header/Header';
 import Reviews from '../Reviews/Reviews';
 import './Home.css';
@@ -11,6 +12,7 @@ const Home = () => {
            <Header/>
            <Pricing/>
            <Partner/>
+           <FreeCamp/>
            <Reviews/>
         </div>
     );

@@ -13,6 +13,7 @@ import AuthProvider from './views/contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './views/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './views/Dashboard/Dashboard';
 import Booking from './views/Booking/Booking';
+import FreeCamp from './views/Home/FreeCamp/FreeCamp';
 
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
         </Route>
         <Route exact path="/register">
         <Register />
+        </Route>
+        <Route exact path="/freecamp">
+        <FreeCamp />
         </Route>
         <PrivateRoute exact path="/booking/:serviceId">
         <Booking />

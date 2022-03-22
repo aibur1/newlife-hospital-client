@@ -14,6 +14,7 @@ const Navigation = () => {
       <Nav.Link href="/services">Services</Nav.Link>
       <Nav.Link href="/about">About</Nav.Link>
       <Nav.Link href="/contact">Contact</Nav.Link>
+      <Nav.Link href="/freecamp">FreeCamp</Nav.Link>
       <Nav.Link href="/dashboard">Dashboard</Nav.Link>
       <Nav.Link href="/login">Login</Nav.Link>
     </Nav> 
